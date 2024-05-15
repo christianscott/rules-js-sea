@@ -11,6 +11,7 @@ def _js_sea_binary(ctx):
         env = {
             "BAZEL_BINDIR": ctx.bin_dir.path,
         },
+        progress_message = "Building SEA for %s" % ctx.label,
     )
 
 js_sea_binary = rule(

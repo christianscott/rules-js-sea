@@ -24,6 +24,7 @@ async function main() {
     JSON.stringify({
       main: args.entrypoint,
       output: "sea-prep.blob",
+      disableExperimentalSEAWarning: true,
     })
   );
   cp.execSync(

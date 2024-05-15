@@ -15,3 +15,5 @@ npm.npm_translate_lock(
 )
 
 use_repo(npm, "npm")
+
+bazel_dep(name = "aspect_rules_esbuild", version = "0.20.0-alpha.0")
