@@ -1,0 +1,16 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary", "js_library")
+
+js_library(
+    name = "build_lib",
+    srcs = ["build.mjs"],
+    data = [],
+)
+
+js_binary(
+    name = "build",
+    data = [
+        ":build_lib",
+        "//:node_modules/postject",
+    ],
+    entry_point = "build.mjs",
+)

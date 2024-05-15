@@ -1,0 +1,17 @@
+module(name = "rules_js_sea", version = "1.0")
+
+bazel_dep(name = "aspect_rules_js", version = "1.42.1")
+
+bazel_dep(name = "rules_nodejs", version = "6.1.0")
+node = use_extension("@rules_nodejs//nodejs:extensions.bzl", "node")
+node.toolchain(node_version = "20.10.0")
+
+npm = use_extension("@aspect_rules_js//npm:extensions.bzl", "npm", dev_dependency = True)
+
+npm.npm_translate_lock(
+    name = "npm",
+    pnpm_lock = "//:pnpm-lock.yaml",
+    verify_node_modules_ignored = "//:.bazelignore",
+)
+
+use_repo(npm, "npm")
